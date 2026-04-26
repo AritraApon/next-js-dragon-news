@@ -9,7 +9,7 @@ const Navbar = () => {
     const pathName = usePathname()
 
     const links = <>
-       <li className={`${pathName === '/' ? 'border-b-3 border-blue-500 text-black':'text-gray-500'} `}><Link href={'/'}>Home</Link></li>
+       <li className={`${pathName === '/'  ? 'border-b-3 border-blue-500 text-black':'text-gray-500'} `}><Link href={'/'}>Home</Link></li>
        <li className={`${pathName === '/about' ? 'border-b-3 border-blue-500 text-black':'text-gray-500'} `}><Link href={'/about'}>About</Link></li>
        <li className={`${pathName === '/Career' ? 'border-b-3 border-blue-500 text-black':'text-gray-500'} `}><Link href={'/Career'}>Career</Link></li>
     </>

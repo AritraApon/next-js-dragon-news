@@ -40,42 +40,42 @@ const RightSide = () => {
 
        {/* Q zone  */}
 
-       <div className="mt-5 bg-[#f3f3f3] p-2">
+       <div className="mt-5 bg-[#f3f3f3] p-2 ">
         <h1 className="text-xl font-semibold">Q zone</h1>
-        <div>
+        <div className="w-auto  flex justify-center">
             <Image
                  src={Swimming}
                  alt="Swimming logo"
-                 width={300}
-                 height={300}
+                 width={500}
+                 height={500}
             />
         </div>
-        <div>
+        <div className="w-auto  flex justify-center">
             <Image
                  src={ClassRoom}
                  alt="Swimming logo"
-                 width={300}
-                 height={300}
+                 width={500}
+                 height={500}
             />
         </div>
-        <div>
+        <div className="w-auto  flex justify-center">
             <Image
                  src={PlayGround}
                  alt="Swimming logo"
-                 width={300}
-                 height={300}
+                 width={500}
+                 height={500}
             />
         </div>
 
        </div>
 
  {/* bg */}
-       <div className="mt-5">
+       <div className="mt-5 w-auto  flex justify-center">
            <Image
                  src={Bg}
                  alt="Swimming logo"
-                 width={300}
-                 height={300}
+                 width={1100}
+                 height={1100}
             />
         </div>
 

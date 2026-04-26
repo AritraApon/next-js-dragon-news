@@ -1,0 +1,32 @@
+import NewsDetailsCard from "@/components/Ui/NewsDetailsCard";
+import { getNewsDetails } from "@/lib/Categroy Data/data";
+import { FadeLoader } from "react-spinners";
+
+
+const NewsDetailsPage = async (props) => {
+    const params = await props.params;
+    const id = params?.id;
+
+    if (!id) return <div className="flex justify-center min-h-5xl">
+        <FadeLoader
+            color="#2615ff"
+            height={20}
+            loading
+            margin={3}
+            radius={4}
+            width={8}
+        />
+    </div>;
+
+    const newsDetails = await getNewsDetails(id);
+
+    return (
+        <div className="max-w-6xl mx-auto my-10">
+        <NewsDetailsCard news={newsDetails} />
+
+
+        </div>
+    );
+};
+
+export default NewsDetailsPage;
