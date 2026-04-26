@@ -26,20 +26,7 @@ const LeftSide = ({ categories, activeId }) => {
                 <h1 className="font-semibold mb-3 text-xl text-gray-700">All Category : </h1>
                 <div className="dropdown dropdown-start">
                     <div tabIndex={0} role="button" className="btn btn-primary flex items-center text-sm m-1">
-
-                         {
-                        categories.map(category =>
-                             <div key={category.category_id}>
-                             <BiSolidCategory/>Select {category.category_name} <IoIosArrowDropdownCircle />
-                         </div>
-                         ) }
-
-
-
-                        </div>
-
-
-
+                        <BiSolidCategory/>Select  <IoIosArrowDropdownCircle /></div>
                     <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                         {
                         categories.map(category => <li key={category.category_id}

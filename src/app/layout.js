@@ -1,6 +1,8 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
+import Footer from "@/components/shared/Footer/Footer";
+
 
 
 const poppins = Poppins({
@@ -24,7 +26,7 @@ export default function RootLayout({ children }) {
         <main className="container mx-auto">
           {children}
         </main>
-
+      <Footer/>
 
 
       </body>

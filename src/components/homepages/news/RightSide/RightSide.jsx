@@ -11,7 +11,7 @@ import Bg from '@/assets/bg.png'
 
 const RightSide = () => {
     return (
-        <div className="">
+        <div className="mt-10">
            <h1 className="font-bold text-xl">Login With</h1>
 
            <div className="space-y-2 mt-4">
