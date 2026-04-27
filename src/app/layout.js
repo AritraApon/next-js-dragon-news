@@ -1,7 +1,8 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { ToastContainer } from "react-toastify";
 
-import Footer from "@/components/shared/Footer/Footer";
+
 
 
 
@@ -26,9 +27,9 @@ export default function RootLayout({ children }) {
         <main className="container mx-auto">
           {children}
         </main>
-      <Footer/>
 
 
+<ToastContainer />
       </body>
     </html>
   );

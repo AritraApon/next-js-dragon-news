@@ -66,7 +66,7 @@ const CareerPage = () => {
                 <p className="mb-8 opacity-90 max-w-xl mx-auto">
                     Jodi apnar proyojoniyo role ekhane na thake, tobe apnar resume amader email korun। Amra bishishto talent-der shobshomoy amontron janai।
                 </p>
-                <a href="mailto:hr@dragon-news.com" className="bg-white text-orange-500 px-10 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform inline-block">
+                <a href="" className="bg-white text-orange-500 px-10 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform inline-block">
                     Send Resume
                 </a>
             </div>

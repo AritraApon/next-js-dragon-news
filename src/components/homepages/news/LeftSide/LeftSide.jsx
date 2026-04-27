@@ -6,7 +6,7 @@ const LeftSide = ({ categories, activeId }) => {
     return (
         <div>
             {/* lg device  */}
-            <div className="hidden lg:flex lg:flex-col">
+            <div className="hidden lg:flex lg:flex-col ">
                 <h1 className="font-bold text-xl">All Category </h1>
                 <ul className="text-center p-2 space-y-5 my-3 text-gray-600">
                     {

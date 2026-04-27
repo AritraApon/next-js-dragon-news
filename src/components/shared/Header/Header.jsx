@@ -13,7 +13,7 @@ const breakingNews = [
 
 const Header = () => {
     return (
-        <div className="container mx-auto space-y-5 ">
+        <div className="container mx-auto space-y-5  ">
          <div className="flex justify-center pt-10 mx-6">
             <Image
             src={logo}

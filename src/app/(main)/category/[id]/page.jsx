@@ -23,8 +23,8 @@ const NewsCategoryPage = async ({ params }) => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 mx-6 my-10 ">
 
                     {/* left side  */}
-                    <div className="bg-gray-50 p-1 rounded  col-span-2">
-                        <div>
+                    <div className="bg-gray-50 p-1 rounded  col-span-2 ">
+                        <div className='sticky top-20 h-fit'>
                             <LeftSide categories={categories} activeId={id} />
 
                         </div>
@@ -58,7 +58,7 @@ const NewsCategoryPage = async ({ params }) => {
                     </div>
 
                     {/* right side  */}
-                    <div className=" col-span-2">
+                    <div className=" col-span-2  sticky top-20 h-fit ">
                         <RightSide />
                     </div>
                 </div>
