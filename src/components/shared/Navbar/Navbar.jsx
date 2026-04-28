@@ -7,83 +7,99 @@ import ProfileImage from "@/assets/user.png";
 import { authClient } from "@/lib/auth-client";
 import { CiLogout } from "react-icons/ci";
 
-
 const Navbar = () => {
-    const pathName = usePathname()
+    const pathName = usePathname();
+    const { data: session } = authClient.useSession();
+    const user = session?.user;
+    const img = user?.image;
 
-    const { data: session } = authClient.useSession()
-    const user = session?.user
-    const img = user?.image
+    const links = (
+        <>
+            <li className={`${pathName === '/' ? 'border-b-2 lg:border-blue-500 text-black font-semibold' : 'text-gray-500'}`}>
+                <Link href={'/'}>Home</Link>
+            </li>
+            <li className={`${pathName === '/about' ? 'border-b-2 lg:border-blue-500 text-black font-semibold' : 'text-gray-500'}`}>
+                <Link href={'/about'}>About</Link>
+            </li>
+            <li className={`${pathName === '/Career' ? 'border-b-2 lg:border-blue-500 text-black font-semibold' : 'text-gray-500'}`}>
+                <Link href={'/Career'}>Career</Link>
+            </li>
+            <li className={`${pathName === '/register' ? 'border-b-2 lg:border-blue-500 text-orange-500 font-semibold' : 'text-orange-400'}`}>
+                <Link href={'/register'}>Register</Link>
+            </li>
+        </>
+    );
 
-
-    const links = <>
-        <li className={`${pathName === '/' ? 'border-b-3 border-blue-500 text-black' : 'text-gray-500'} `}><Link href={'/'}>Home</Link></li>
-        <li className={`${pathName === '/about' ? 'border-b-3 border-blue-500 text-black' : 'text-gray-500'} `}><Link href={'/about'}>About</Link></li>
-        <li className={`${pathName === '/Career' ? 'border-b-3 border-blue-500 text-black' : 'text-gray-500'} `}><Link href={'/Career'}>Career</Link></li>
-        <li className={`${pathName === '/register' ? 'border-b-3 border-blue-500 text-black' : 'text-gray-500'} text-orange-500 `}><Link href={'/register'}>Register</Link></li>
-    </>
     return (
-        <div className="mt-3  sticky top-0 z-50 bg-white">
-            <div className="navbar  ">
+        <div className="sticky top-0 z-50 bg-white shadow-sm px-2 sm:px-4">
+            <div className="navbar max-w-7xl mx-auto p-0 h-16">
+
+                {/* Mobile Menu & Logo */}
                 <div className="navbar-start">
                     <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden p-1 mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+                            </svg>
                         </div>
-                        <ul
-                            tabIndex="-1"
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-4 shadow-lg border border-gray-100">
                             {links}
                         </ul>
                     </div>
-
+                    <Link href="/" className="text-xl font-bold tracking-tighter sm:text-2xl text-red-600">
+                        Dragon News
+                    </Link>
                 </div>
+
+                {/* Desktop Menu */}
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu menu-horizontal px-1 gap-4">
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end gap-3 mx-2">
-                    <div className="flex items-center gap-3">
-                        <div className="flex flex-col">
-                            {
-                                user && <span className="text-xs font-semibold animate-pulse">{user.name}</span>
-                            }
-                            {
-                                user && <span className="text-xs text-gray-400">{user.email}</span>
-                            }
 
+                {/* End Section: Profile & Auth */}
+                <div className="navbar-end gap-2">
+                    {user && (
+                        <div className="flex items-center gap-2 mr-1">
+                            <div className="hidden sm:flex flex-col text-right">
+                                <span className="text-[10px] font-bold text-black leading-tight uppercase tracking-tighter">
+                                    {user.name}
+                                </span>
+                                <span className="text-[9px] text-gray-500 leading-tight">
+                                    {user.email?.slice(0, 15)}...
+                                </span>
+                            </div>
+                            <div className="avatar online">
+                                <div className="w-9 h-9 rounded-full ring ring-gray-100 ring-offset-base-100 ring-offset-2">
+                                    <Image
+                                        src={img || ProfileImage}
+                                        alt="profile"
+                                        width={40}
+                                        height={40}
+                                        className="rounded-full"
+                                        unoptimized={true}
+                                    />
+                                </div>
+                            </div>
                         </div>
-                        <Image
-                            src={img || ProfileImage}
-                            alt="profile picture"
-                            width={40}
-                            height={40}
-                            className="rounded-full"
-                            unoptimized={true}
-                        />
+                    )}
 
-                    </div>
-                    {
-                        user ? (
-
-                            <button
-                                onClick={() => authClient.signOut()}
-                                className="btn btn-outline text-white text-2xl bg-red-500 font-bold hover:bg-red-700"
-                            >
-                              <CiLogout />
+                    {user ? (
+                        <button
+                            onClick={() => authClient.signOut()}
+                            className="btn btn-sm sm:btn-md btn-error text-white sm:px-4 flex items-center gap-1"
+                        >
+                            <CiLogout className="text-xl sm:text-2xl" />
+                            <span className="hidden sm:inline">Logout</span>
+                        </button>
+                    ) : (
+                        <Link href={'/logIn'}>
+                            <button className="btn btn-sm sm:btn-md text-white bg-[#403f3f] px-4 sm:px-8 hover:bg-black transition-all">
+                                Login
                             </button>
-                        ) : (
-
-                            <Link href={'/logIn'}>
-                                <button className="btn text-white bg-[#403f3f] px-8 hover:bg-[#0d0d0d]">
-                                    Login
-                                </button>
-                            </Link>
-                        )
-                    }
-
-
+                        </Link>
+                    )}
                 </div>
             </div>
         </div>

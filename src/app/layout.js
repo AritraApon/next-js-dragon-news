@@ -18,19 +18,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en" suppressHydrationWarning={true} data-theme='light'
-      className={` h-full antialiased`}
-    >
-      <body className={`${poppins.className} min-h-full  flex flex-col container mx-auto `} suppressHydrationWarning={true}  >
-
-        <main className="container mx-auto">
-          {children}
-        </main>
+  <html
+  lang="en"
+  suppressHydrationWarning={true}
+  data-theme='light'
+  className="h-full antialiased"
+>
+  <body className={`${poppins.className} min-h-screen flex flex-col`} suppressHydrationWarning={true}>
 
 
-<ToastContainer />
-      </body>
-    </html>
-  );
-}
+    <main className="flex-grow w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      {children}
+    </main>
+
+    <ToastContainer />
+  </body>
+</html>
+  )}
