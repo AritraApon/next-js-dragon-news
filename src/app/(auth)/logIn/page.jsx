@@ -1,14 +1,15 @@
 "use client"
 import Link from "next/link";
 import { useState } from "react";
-import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
+import { FaGoogle, FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { useForm } from "react-hook-form"
 import { authClient } from "@/lib/auth-client";
 import { toast } from "react-toastify";
+import { createAuthClient } from "better-auth/react";
 
 const LogInPage = () => {
     const [showPassword, setShowPassword] = useState(false);
-
+    const authClient = createAuthClient();
     const {
         register,
         handleSubmit,
@@ -34,6 +35,12 @@ const LogInPage = () => {
         if (error) {
             toast.error(error?.message)
         }
+    }
+
+    const handleGoogleSingIn = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
     }
 
     return (
@@ -91,6 +98,13 @@ const LogInPage = () => {
 
                         </p>
                     </form>
+                    <div className="mt-3">
+                        <button className="btn w-full text-blue-500 border-2 border-blue-500 rounded-2xl flex items-center" onClick={handleGoogleSingIn}>
+                            <FaGoogle />
+                            <p >Login with Google
+                            </p>
+                        </button>
+                    </div>
 
                 </div>
             </div>
