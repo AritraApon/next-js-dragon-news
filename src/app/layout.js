@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
       lang="en" suppressHydrationWarning={true} data-theme='light'
       className={` h-full antialiased`}
     >
-      <body className={`${poppins.className} min-h-full  flex flex-col `} suppressHydrationWarning={true} >
+      <body className={`${poppins.className} min-h-full  flex flex-col container mx-auto `} suppressHydrationWarning={true}  >
 
         <main className="container mx-auto">
           {children}
