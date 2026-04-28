@@ -5,10 +5,10 @@ import Navbar from "@/components/shared/Navbar/Navbar";
 
 const layout = ({children}) => {
     return (
-        <div>
+        <div >
           <Header/>
           <Navbar/>
-          <main>
+          <main className='container mx-auto'>
             {children}
           </main>
           <Footer/>
