@@ -25,7 +25,7 @@ const RightSide = () => {
 
     return (
         <div className="mt-10">
-            <h1 className="font-bold text-xl">Login With</h1>
+            <h1 className="font-bold text-xl"><span className="text-orange-400">Login</span> With</h1>
 
             <div className="space-y-2 mt-4">
                 <button className="btn w-full text-blue-500 border-2 border-blue-500 flex items-center" onClick={handleGoogleSingIn}>

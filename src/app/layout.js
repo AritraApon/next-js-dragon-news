@@ -24,10 +24,10 @@ export default function RootLayout({ children }) {
   data-theme='light'
   className="h-full antialiased"
 >
-  <body className={`${poppins.className} min-h-screen flex flex-col`} suppressHydrationWarning={true}>
+  <body className={`${poppins.className} min-h-screen flex flex-col bg-[#9793932b]`} suppressHydrationWarning={true}>
 
 
-    <main className="flex-grow w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+    <main className="container mx-auto ">
       {children}
     </main>
 

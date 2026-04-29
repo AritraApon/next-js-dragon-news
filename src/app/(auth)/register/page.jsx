@@ -40,7 +40,7 @@ const RegisterPage = () => {
 
     return (
         <div className="flex justify-center items-center min-h-[80vh] mx-3">
-            <div className=" bg-stone-50 p-10 shadow-xl rounded-2xl w-[500] space-y-3 hover:shadow-orange-200 ">
+            <div className="bg-stone-50 p-6 sm:p-10 shadow-xl rounded-2xl w-full sm:max-w-125 space-y-3 hover:shadow-orange-200 transition-shadow">
                 <div>
                     <h1 className="font-bold text-stone-600 text-2xl text-center mb-6">Register <span className="text-orange-500">your account</span></h1>
                 </div>
